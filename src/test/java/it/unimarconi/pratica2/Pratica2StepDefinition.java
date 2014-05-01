@@ -1,0 +1,27 @@
+package it.unimarconi.pratica2;
+
+import cucumber.annotation.en.Given;
+import cucumber.annotation.en.Then;
+import it.unimarconi.pratica1.Pratica1;
+
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
+
+public class Pratica2StepDefinition {
+
+    Pratica2 p;
+
+    @Given("^a = (\\d+), seed = (\\d+), b = (\\d+), min = (\\d+), max = (\\d+)$")
+    public void a_seed_and_b_(int a, int seed, int b, int min, int max) {
+        p = new Pratica2(a, seed, b, min, max);
+    }
+
+    @Then("^there should be a sequence of elements between (\\d+) and (\\d+)")
+    public void calculate_sequences(double min, double max) {
+        List<Double> l = p.generaIntervallo();
+        for (Double d : l)
+            assertTrue(d >= min && d <= max);
+    }
+
+}
