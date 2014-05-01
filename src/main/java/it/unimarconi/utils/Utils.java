@@ -70,6 +70,22 @@ public class Utils {
         return l;
     }
 
+    public static List<Double> generaEsponenziale(int a, int seed, int b, int avg) {
+        List<Double> l = new ArrayList<Double>();
+        List<Double> rns = generaRn(a, seed, b);
+        double lambda = 1.0 / avg;
+        for(Double rn : rns)
+            l.add((-1 / lambda) * Math.log(rn));
+        return l;
+    }
+
+    public static double calcolaMedia(List<Double> l) {
+        double s = 0.0;
+        for (Double d : l)
+            s += d;
+        return s / l.size();
+    }
+
     /**
      * @param m Pendenza retta
      * @param q Intercetta retta

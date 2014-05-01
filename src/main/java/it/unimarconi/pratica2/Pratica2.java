@@ -17,6 +17,8 @@ public class Pratica2 {
 
     private int max;
 
+    private int avg;
+
     public Pratica2(int a, int seed, int b, int min, int max) {
         this.setA(a);
         this.setSeed(seed);
@@ -25,8 +27,27 @@ public class Pratica2 {
         this.setMax(max);
     }
 
+    public Pratica2(int a, int seed, int b, int avg) {
+        this.setA(a);
+        this.setSeed(seed);
+        this.setB(b);
+        this.setAvg(avg);
+    }
+
     public List<Double> generaIntervallo() {
         return Utils.generaIntervallo(this.getA(), this.getSeed(), this.getB(), this.getMin(), this.getMax());
+    }
+
+    public List<Double> generaEsponenziale() {
+        return Utils.generaEsponenziale(this.getA(), this.getSeed(), this.getB(), this.getAvg());
+    }
+
+    public int getAvg() {
+        return avg;
+    }
+
+    public void setAvg(int avg) {
+        this.avg = avg;
     }
 
     public int getA() {
