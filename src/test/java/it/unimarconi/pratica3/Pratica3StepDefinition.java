@@ -1,8 +1,8 @@
-package it.unimarconi.pratica2;
+package it.unimarconi.pratica3;
 
 import cucumber.annotation.en.Given;
 import cucumber.annotation.en.Then;
-import it.unimarconi.pratica1.Pratica1;
+import it.unimarconi.pratica2.Pratica2;
 import it.unimarconi.utils.Utils;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class Pratica2StepDefinition {
+public class Pratica3StepDefinition {
 
     Pratica2 p2;
 
@@ -31,9 +31,11 @@ public class Pratica2StepDefinition {
         p2 = new Pratica2(a, seed, b, avg);
     }
 
-    @Then("^there should be an exponential sequence$")
-    public void there_should_be_an_exponential_sequence_of_average() {
+    @Then("^there should be an exponential sequence of average (\\d+)$")
+    public void there_should_be_an_exponential_sequence_of_average(double avg) {
         List<Double> l = p2.generaEsponenziale();
+        double media = Utils.calcolaMedia(l);
+        assertEquals((int)avg, (int)media);
     }
 
     @Given("^a = (\\d+), seed = (\\d+), b = (\\d+), p = (.+) and avg = (\\d+)$")
@@ -41,9 +43,11 @@ public class Pratica2StepDefinition {
         p2 = new Pratica2(a, seed, b, avg, p);
     }
 
-    @Then("^there should be an hyperexponential sequence of p = (.+)$")
-    public void there_should_be_an_hyperexponential_sequence_of_average(double p) {
+    @Then("^there should be an hyperexponential sequence of average (\\d+) and p = (.+)$")
+    public void there_should_be_an_hyperexponential_sequence_of_average(double avg, double p) {
         List<Double> l = p2.generaIperesponenziale();
+        double media = Utils.calcolaMedia(l);
+        assertEquals((int)avg, (int)media);
     }
 
 }

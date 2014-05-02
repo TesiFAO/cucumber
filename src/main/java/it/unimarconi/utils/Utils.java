@@ -79,6 +79,20 @@ public class Utils {
         return l;
     }
 
+    public static List<Double> generaIpersponenziale(int a, int seed, int b, int avg, double p) {
+        List<Double> zs = new ArrayList<Double>();
+        List<Double> rns = generaRn(a, seed, b);
+        List<Double> Xs = generaEsponenziale(a, seed, b, 1);
+        for (int i = 0 ; i < rns.size() ; i++) {
+            if (rns.get(i) <= p) {
+                zs.add(Xs.get(i) * (avg / (2 * p)));
+            } else {
+                zs.add(Xs.get(i) * (avg / (2 * (1 - p))));
+            }
+        }
+        return zs;
+    }
+
     public static double calcolaMedia(List<Double> l) {
         double s = 0.0;
         for (Double d : l)

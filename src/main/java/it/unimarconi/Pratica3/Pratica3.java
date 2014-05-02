@@ -1,11 +1,10 @@
-package it.unimarconi.pratica2;
+package it.unimarconi.Pratica3;
 
 import it.unimarconi.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Pratica2 {
+public class Pratica3 {
 
     private int a;
 
@@ -21,7 +20,7 @@ public class Pratica2 {
 
     private double p;
 
-    public Pratica2(int a, int seed, int b, int min, int max) {
+    public Pratica3(int a, int seed, int b, int min, int max) {
         this.setA(a);
         this.setSeed(seed);
         this.setB(b);
@@ -29,14 +28,14 @@ public class Pratica2 {
         this.setMax(max);
     }
 
-    public Pratica2(int a, int seed, int b, int avg) {
+    public Pratica3(int a, int seed, int b, int avg) {
         this.setA(a);
         this.setSeed(seed);
         this.setB(b);
         this.setAvg(avg);
     }
 
-    public Pratica2(int a, int seed, int b, int avg, double p) {
+    public Pratica3(int a, int seed, int b, int avg, double p) {
         this.setA(a);
         this.setSeed(seed);
         this.setB(b);

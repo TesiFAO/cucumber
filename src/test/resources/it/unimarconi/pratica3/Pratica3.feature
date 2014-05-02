@@ -12,7 +12,7 @@ Feature: Costruire in C++ o Java un generatore che produca sequenze <Rn>
 
   Scenario Outline: Generare una sequenza esponenziale di media 20
     Given a = <a>, seed = <seed>, b = <b> and avg = <avg>
-    Then there should be an exponential sequence
+    Then there should be an exponential sequence of average <avg>
 
   Examples:
     | a | seed |  b | avg |
@@ -22,7 +22,7 @@ Feature: Costruire in C++ o Java un generatore che produca sequenze <Rn>
 
   Scenario Outline: Generare una sequenza iperesponenziale di media 20 e parametro p = 0.38
     Given a = <a>, seed = <seed>, b = <b>, p = <p> and avg = <avg>
-    Then there should be an hyperexponential sequence of p = <p>
+    Then there should be an hyperexponential sequence of average <avg> and p = <p>
 
   Examples:
     | a | seed |  b | avg |    p |
