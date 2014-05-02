@@ -68,10 +68,8 @@ public class Pratica4 {
             double v = Utils.calcolaV(yss, size, 0.015625);
             if (v > min && v < max) {
                 out[k] = true;
-//                System.out.println("TEST SUCCEED | " + min + " < " + v + " < " + max + " [a = " + this.getA() + "][seed = " + this.getSeed() + "]");
             } else {
                 out[k] = false;
-//                System.out.println("TEST FAILED | " + min + " < " + v + " < " + max + " [a = " + this.getA() + "][seed = " + this.getSeed() + "]");
             }
         }
 

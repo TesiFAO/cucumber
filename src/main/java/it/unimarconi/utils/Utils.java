@@ -73,9 +73,8 @@ public class Utils {
     public static List<Double> generaEsponenziale(int a, int seed, int b, int avg) {
         List<Double> l = new ArrayList<Double>();
         List<Double> rns = generaRn(a, seed, b);
-        double lambda = 1.0 / avg;
         for(Double rn : rns)
-            l.add((-1 / lambda) * Math.log(rn));
+            l.add(-avg * Math.log(rn));
         return l;
     }
 
@@ -185,7 +184,6 @@ public class Utils {
         double c = za * Math.sqrt(2.0 / (9.0 * df));
         double abc = a - b + c;
         double cube = Math.pow(abc, 3);
-//        System.out.println(df * cube);
         return (df * cube);
     }
 

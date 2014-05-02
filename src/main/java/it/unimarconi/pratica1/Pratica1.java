@@ -5,9 +5,6 @@ import it.unimarconi.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Guido Barbaglia
- */
 public class Pratica1 {
 
     private int a;
