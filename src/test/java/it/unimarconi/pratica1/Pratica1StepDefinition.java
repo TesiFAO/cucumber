@@ -2,7 +2,6 @@ package it.unimarconi.pratica1;
 
 import cucumber.annotation.en.Given;
 import cucumber.annotation.en.Then;
-import it.unimarconi.uno.Somma;
 
 import static org.junit.Assert.assertTrue;
 

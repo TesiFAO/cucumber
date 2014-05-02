@@ -154,9 +154,9 @@ public class Utils {
 //            System.out.println("categoria " + i + " contiene " + yss.get(i) + " -> " + (Math.pow(yss.get(i) - nps, 2) / nps));
             v += Math.pow(yss.get(i) - nps, 2) / nps;
         }
-        System.out.println("nps: " + nps);
-        System.out.println("v: " + v);
-        System.out.println();
+//        System.out.println("nps: " + nps);
+//        System.out.println("v: " + v);
+//        System.out.println();
         return v;
     }
 
