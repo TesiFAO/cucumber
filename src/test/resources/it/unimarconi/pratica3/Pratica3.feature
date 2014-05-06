@@ -26,4 +26,5 @@ Feature: Costruire in C++ o Java un generatore che produca sequenze <Rn>
 
   Examples:
     | a | seed |  b | avg |    p |
-    | 5 |    1 | 12 |  20 | 0.38 |
+    | 5 |    1 | 16 |  20 | 0.38 |
+    | 5 |    1 | 16 |  20 | 0.50 |

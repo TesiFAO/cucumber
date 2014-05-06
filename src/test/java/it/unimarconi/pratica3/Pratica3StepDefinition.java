@@ -47,6 +47,14 @@ public class Pratica3StepDefinition {
     public void there_should_be_an_hyperexponential_sequence_of_average(double avg, double p) {
         List<Double> l = p2.generaIperesponenziale();
         double media = Utils.calcolaMedia(l);
+        double varianza = Utils.calcolaVarianza(l, 20);
+        System.out.println("iperesponenziale " + media);
+        System.out.println("NOSTRA: " + varianza);
+        double k = (1.0 / (2.0 * p * (1.0 - p))) - 1.0;
+        System.out.println("K: " + k);
+        double expVariance = 400 * k;
+        System.out.println("EXP: " + expVariance);
+        System.out.println();
         assertEquals((int)avg, (int)media);
     }
 

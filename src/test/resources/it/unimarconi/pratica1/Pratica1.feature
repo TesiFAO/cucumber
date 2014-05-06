@@ -4,11 +4,12 @@ Feature: Costruire in C++ o Java un generatore congruente moltiplicativo di inte
 
   Scenario Outline: Generare sequenze di numeri interi pseudo-casuali
     Given a = <a>, seed = <seed> and b = <b>
-    Then  there are <sequences> different sequeces
+    Then  there is 1 match either with Corollario A1 or Corollario A2
 
   Examples:
-    | a | seed | b | sequences |
-    | 5 |    1 | 5 |        16 |
-    | 5 |    1 | 6 |        32 |
-    | 5 |    1 | 3 |         4 |
-    | 5 |    1 | 9 |       256 |
+    |  a | seed | b |
+    |  5 |    1 | 9 |
+    | 13 |    3 | 9 |
+    | 21 |    5 | 9 |
+    | 29 |    7 | 9 |
+    | 37 |  253 | 9 |

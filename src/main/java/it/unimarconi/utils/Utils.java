@@ -1,6 +1,7 @@
 package it.unimarconi.utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -35,6 +36,20 @@ public class Utils {
             l.add(next);
             next = (a * next) % m;
         }
+        return l;
+    }
+
+    public static List<Integer> corollarioA1(Integer b) {
+        List<Integer> l = new ArrayList<Integer>();
+        for (int i = 0 ; i <= ((int)Math.pow(2, b-2) - 1) ; i++)
+            l.add(1 + 4 * i);
+        return l;
+    }
+
+    public static List<Integer> corollarioA2(Integer b) {
+        List<Integer> l = new ArrayList<Integer>();
+        for (int i = 0 ; i <= ((int)Math.pow(2, b-2) - 1) ; i++)
+            l.add(3 + 4 * i);
         return l;
     }
 
@@ -84,9 +99,9 @@ public class Utils {
         List<Double> Xs = generaEsponenziale(a, seed, b, 1);
         for (int i = 0 ; i < rns.size() ; i++) {
             if (rns.get(i) <= p) {
-                zs.add(Xs.get(i) * (avg / (2 * p)));
+                zs.add(Xs.get(i) * (avg / (2.0 * p)));
             } else {
-                zs.add(Xs.get(i) * (avg / (2 * (1 - p))));
+                zs.add(Xs.get(i) * (avg / (2.0 * (1.0 - p))));
             }
         }
         return zs;
@@ -96,6 +111,13 @@ public class Utils {
         double s = 0.0;
         for (Double d : l)
             s += d;
+        return s / l.size();
+    }
+
+    public static double calcolaVarianza(List<Double> l, double media) {
+        double s = 0.0;
+        for (Double d : l)
+            s += Math.pow((d - media), 2);
         return s / l.size();
     }
 
