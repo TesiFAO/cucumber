@@ -8,7 +8,9 @@ public class Pratica3 {
 
     private int a;
 
-    private int seed;
+    private int seed1;
+
+    private int seed2;
 
     private int b;
 
@@ -22,7 +24,7 @@ public class Pratica3 {
 
     public Pratica3(int a, int seed, int b, int min, int max) {
         this.setA(a);
-        this.setSeed(seed);
+        this.setSeed1(seed);
         this.setB(b);
         this.setMin(min);
         this.setMax(max);
@@ -30,29 +32,41 @@ public class Pratica3 {
 
     public Pratica3(int a, int seed, int b, int avg) {
         this.setA(a);
-        this.setSeed(seed);
+        this.setSeed1(seed);
         this.setB(b);
         this.setAvg(avg);
     }
 
-    public Pratica3(int a, int seed, int b, int avg, double p) {
+    public Pratica3(int a, int seed, int b) {
         this.setA(a);
-        this.setSeed(seed);
+        this.setSeed1(seed);
+        this.setB(b);
+        this.setAvg(avg);
+    }
+
+    public Pratica3(int a, int seed1, int seed2, int b, int avg, double p) {
+        this.setA(a);
+        this.setSeed1(seed1);
+        this.setSeed2(seed2);
         this.setB(b);
         this.setAvg(avg);
         this.setP(p);
     }
 
+    public List<Double> generaRn() {
+        return Utils.generaRn(this.getA(), this.getSeed1(), this.getB());
+    }
+
     public List<Double> generaIntervallo() {
-        return Utils.generaIntervallo(this.getA(), this.getSeed(), this.getB(), this.getMin(), this.getMax());
+        return Utils.generaIntervallo(this.getA(), this.getSeed1(), this.getB(), this.getMin(), this.getMax());
     }
 
     public List<Double> generaEsponenziale() {
-        return Utils.generaEsponenziale(this.getA(), this.getSeed(), this.getB(), this.getAvg());
+        return Utils.generaEsponenziale(this.getA(), this.getSeed1(), this.getB(), this.getAvg());
     }
 
     public List<Double> generaIperesponenziale() {
-        return Utils.generaIpersponenziale(this.getA(), this.getSeed(), this.getB(), this.getAvg(), this.getP());
+        return Utils.generaIpersponenziale(this.getA(), this.getSeed1(), this.getSeed2(), this.getB(), this.getAvg(), this.getP());
     }
 
     public double getP() {
@@ -79,12 +93,20 @@ public class Pratica3 {
         this.a = a;
     }
 
-    public int getSeed() {
-        return seed;
+    public int getSeed1() {
+        return seed1;
     }
 
-    public void setSeed(int seed) {
-        this.seed = seed;
+    public void setSeed1(int seed1) {
+        this.seed1 = seed1;
+    }
+
+    public int getSeed2() {
+        return seed2;
+    }
+
+    public void setSeed2(int seed2) {
+        this.seed2 = seed2;
     }
 
     public int getB() {

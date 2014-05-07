@@ -19,6 +19,82 @@ public class Utils {
 
     public static double Z90 = 1.282;
 
+    public static List<Integer> generaClassi(List<Double> l, int numeroGruppi) {
+        double max = max(l);
+        double min = min(l);
+        List<Integer> classi = new ArrayList<Integer>();
+        for (int i = 0 ; i < numeroGruppi ; i++)
+            classi.add(0);
+        double step = (max - min) / numeroGruppi;
+        for (int i = 0 ; i < l.size() ; i++) {
+            Double d = l.get(i);
+            int classe = (int) ((d / step) - (min / 2.0));
+            if (classe >= numeroGruppi)
+                classe = numeroGruppi - 1;
+            classi.set(classe, 1 + classi.get(classe));
+        }
+        return classi;
+    }
+
+    public static List<Double> generaSoglie(List<Double> l, int numeroGruppi) {
+        List<Double> soglie = new ArrayList<Double>();
+        double max = max(l);
+        double min = min(l);
+        double step = (max - min) / numeroGruppi;
+        for (int i = 0 ; i < numeroGruppi ; i++)
+            soglie.add(min + i * step);
+        return soglie;
+    }
+
+    public static List<Double> calcolaFrequenzeRelative(List<Integer> ll, double lunghezzaPeriodo) {
+        List<Double> out = new ArrayList<Double>();
+        for (Integer l : ll)
+            out.add((double)l / lunghezzaPeriodo);
+        return out;
+    }
+
+    public static List<Double> calcolaDensita(List<Double> l, List<Double> freqs) {
+        List<Double> out = new ArrayList<Double>();
+        double max = max(l);
+        double min = min(l);
+        double step = (max - min) / freqs.size();
+        for (int i = 0 ; i < freqs.size() ; i++)
+            out.add(freqs.get(i) / step);
+        return out;
+    }
+
+    public static List<Double> calcolaCumulata(List<Double> freqs, List<Integer> ranges) {
+        List<Double> out = new ArrayList<Double>();
+        for (int i = 0 ; i < freqs.size() ; i++) {
+            double sum = 0.0;
+            for (int j = 0 ; j <= i ; j++)
+                sum += freqs.get(j);
+            out.add(sum);
+        }
+        return out;
+    }
+
+    public static List<Double> generaClassi(List<Double> l, List<Double> soglie) {
+        List<Double> classi = new ArrayList<Double>();
+        return classi;
+    }
+
+    public static double max(List<Double> l) {
+        double max = 0.0;
+        for (Double d : l)
+            if (d > max)
+                max = d;
+        return max;
+    }
+
+    public static double min(List<Double> l) {
+        double min = Double.MAX_VALUE;
+        for (Double d : l)
+            if (d < min)
+                min = d;
+        return min;
+    }
+
     /**
      * @param a  a
      * @param x0 Seed
@@ -74,6 +150,7 @@ public class Utils {
         }
         for (Double d : l1)
             l2.add(d / m);
+        System.out.println(l2.size() + " rns");
         return l2;
     }
 
@@ -90,13 +167,14 @@ public class Utils {
         List<Double> rns = generaRn(a, seed, b);
         for(Double rn : rns)
             l.add(-avg * Math.log(rn));
+        System.out.println(l.size() + " exp");
         return l;
     }
 
-    public static List<Double> generaIpersponenziale(int a, int seed, int b, int avg, double p) {
+    public static List<Double> generaIpersponenziale(int a, int seed1, int seed2, int b, int avg, double p) {
         List<Double> zs = new ArrayList<Double>();
-        List<Double> rns = generaRn(a, seed, b);
-        List<Double> Xs = generaEsponenziale(a, seed, b, 1);
+        List<Double> rns = generaRn(a, seed1, b);
+        List<Double> Xs = generaEsponenziale(a, seed2, b, 1);
         for (int i = 0 ; i < rns.size() ; i++) {
             if (rns.get(i) <= p) {
                 zs.add(Xs.get(i) * (avg / (2.0 * p)));
