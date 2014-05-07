@@ -30,4 +30,4 @@ Feature: Costruire in C++ o Java un generatore che produca sequenze <Rn>
 
   Examples:
     | a | seedA | seedB |  b | avg |    p |
-    | 5 |     1 |     1 | 16 |  20 | 0.38 |
+    | 61 |     15 |     1 | 12 |  20 | 0.38 |

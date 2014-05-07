@@ -65,7 +65,8 @@ public class Pratica3StepDefinition {
         System.out.println(c);
         System.out.println(cat);
         System.out.println(occorrenze);
-        System.out.println("RN");
+        System.out.println("MEDIA: " + Utils.calcolaMedia(l));
+        System.out.println("VARIANZA: " + Utils.calcolaVarianza(l, 20));
     }
 
     @Given("^a = (\\d+), seed = (\\d+), b = (\\d+), min = (\\d+), max = (\\d+), classi = (\\d+)$")
@@ -113,6 +114,8 @@ public class Pratica3StepDefinition {
         System.out.println(c);
         System.out.println(cat);
         System.out.println(occorrenze);
+        System.out.println("MEDIA: " + Utils.calcolaMedia(l));
+        System.out.println("VARIANZA: " + Utils.calcolaVarianza(l, 20));
     }
 
     @Given("^a = (\\d+), seed = (\\d+), b = (\\d+) and avg = (\\d+)$")
@@ -162,6 +165,8 @@ public class Pratica3StepDefinition {
         System.out.println(c);
         System.out.println(cat);
         System.out.println(occorrenze);
+        System.out.println("MEDIA: " + Utils.calcolaMedia(l));
+        System.out.println("VARIANZA: " + Utils.calcolaVarianza(l, 20));
     }
 
     @Given("^a = (\\d+), seedA = (\\d+), seedB = (\\d+), b = (\\d+), p = (.+) and avg = (\\d+)$")
@@ -211,6 +216,8 @@ public class Pratica3StepDefinition {
         System.out.println(c);
         System.out.println(cat);
         System.out.println(occorrenze);
+        System.out.println("MEDIA: " + Utils.calcolaMedia(l));
+        System.out.println("VARIANZA: " + Utils.calcolaVarianza(l, 20));
     }
 
 }
