@@ -77,6 +77,85 @@ public class Pratica2 {
         return Utils.generaIpersponenziale(this.getA(), this.getSeed1(), this.getSeed2(), this.getB(), this.getAvg(), this.getP());
     }
 
+    public void print() {
+        printRn();
+        printRange();
+        printExponential();
+        printHyperExponential();
+    }
+
+    public void printRn() {
+        System.out.println("*********************************");
+        System.out.println("*          SEQUENZA RN          *");
+        System.out.println("*********************************");
+        System.out.println();
+        System.out.println("a: " + this.getA());
+        System.out.println("seed: " + this.getSeed1());
+        System.out.println("b: " + this.getB());
+        System.out.println();
+        List<Double> l = Utils.generaRn(this.getA(), this.getSeed1(), this.getB());
+        printSequence(l);
+        System.out.println();
+    }
+
+    public void printRange() {
+        System.out.println("********************************************************************");
+        System.out.println("*          SEQUENZA UNIFORMEMENTE DISTRIBUITA IN (30, 50)          *");
+        System.out.println("********************************************************************");
+        System.out.println();
+        System.out.println("a: " + this.getA());
+        System.out.println("seed: " + this.getSeed1());
+        System.out.println("b: " + this.getB());
+        System.out.println("min: " + this.getMin());
+        System.out.println("max: " + this.getMax());
+        System.out.println();
+        List<Double> l = Utils.generaIntervallo(this.getA(), this.getSeed1(), this.getB(), this.getMin(), this.getMax());
+        printSequence(l);
+        System.out.println();
+    }
+
+    public void printExponential() {
+        System.out.println("*******************************************************");
+        System.out.println("*          SEQUENZA ESPONENZIALE DI MEDIA 20          *");
+        System.out.println("*******************************************************");
+        System.out.println();
+        System.out.println("a: " + this.getA());
+        System.out.println("seed: " + this.getSeed1());
+        System.out.println("b: " + this.getB());
+        System.out.println("avg: " + this.getAvg());
+        System.out.println();
+        List<Double> l = Utils.generaEsponenziale(this.getA(), this.getSeed1(), this.getB(), this.getAvg());
+        printSequence(l);
+        System.out.println();
+    }
+
+    public void printHyperExponential() {
+        System.out.println("*******************************************************************************");
+        System.out.println("*          SEQUENZA IPERESPONENZIALE DI MEDIA 20 E PARAMETRO p = 0.38         *");
+        System.out.println("*******************************************************************************");
+        System.out.println();
+        System.out.println("a: " + this.getA());
+        System.out.println("seed 1: " + this.getSeed1());
+        System.out.println("seed 2: " + this.getSeed2());
+        System.out.println("avg: " + this.getAvg());
+        System.out.println("p: " + this.getP());
+        System.out.println();
+        List<Double> l = Utils.generaIpersponenziale(this.getA(), this.getSeed1(), this.getSeed2(), this.getB(), this.getAvg(), this.getP());
+        printSequence(l);
+        System.out.println();
+    }
+
+    public void printSequence(List<Double> l) {
+        String s = "<Rn> = [";
+        for (int i = 0 ; i < 50 ; i++) {
+            s += l.get(i);
+            if (i < l.size() - 1)
+                s += ", ";
+        }
+        s += " ...]";
+        System.out.println(s);
+    }
+
     public double getP() {
         return p;
     }

@@ -158,7 +158,7 @@ public class Pratica3 {
             if (z < soglie.size() - 1)
                 cat += ", ";
         }
-        cat += soglie.get(soglie.size() - 1) + " to " + Utils.max(l);
+        cat += "'" + soglie.get(soglie.size() - 1) + " to " + Utils.max(l) + "'";
         for (int i = 0 ; i < freqRelative.size() ; i++) {
             seq += l.get(i);
             f += df.format(freqRelative.get(i));
@@ -176,7 +176,7 @@ public class Pratica3 {
         f += "]";
         d += "]";
         c += "]";
-        seq += "]";
+        seq += " ...]";
         cat += "]";
         occorrenze += "]";
         System.out.println(seq + "\n");

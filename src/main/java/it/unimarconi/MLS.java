@@ -2,6 +2,7 @@ package it.unimarconi;
 
 import it.unimarconi.Pratica3.Pratica3;
 import it.unimarconi.pratica1.Pratica1;
+import it.unimarconi.pratica2.Pratica2;
 
 public class MLS {
 
@@ -22,7 +23,7 @@ public class MLS {
     private static void pratica1() {
 
         System.out.println("****************************************************");
-        System.out.println("*                     PRATICA 2                    *");
+        System.out.println("*                     PRATICA 1                    *");
         System.out.println("****************************************************");
         System.out.println();
 
@@ -50,6 +51,33 @@ public class MLS {
     }
 
     private static void pratica2() {
+
+        System.out.println("****************************************************");
+        System.out.println("*                     PRATICA 2                    *");
+        System.out.println("****************************************************");
+        System.out.println();
+
+        int a = 5;
+        int seed = 1;
+        int b = 12;
+        Pratica2 p2 = new Pratica2(a, seed, b);
+        p2.printRn();
+
+        int min = 30;
+        int max = 50;
+        p2 = new Pratica2(a, seed, b, min, max);
+        p2.printRange();
+
+        int avg = 20;
+        p2 = new Pratica2(a, seed, b, avg);
+        p2.printExponential();
+
+        a = 5;
+        int seedA = 1;
+        int seedB = 15;
+        double p = 0.38;
+        p2 = new Pratica2(a, seedA, seedB, b, avg, p);
+        p2.printHyperExponential();
 
     }
 
