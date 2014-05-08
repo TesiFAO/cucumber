@@ -1,6 +1,7 @@
 package it.unimarconi;
 
 import it.unimarconi.Pratica3.Pratica3;
+import it.unimarconi.pratica1.Pratica1;
 
 public class MLS {
 
@@ -19,6 +20,32 @@ public class MLS {
     }
 
     private static void pratica1() {
+
+        System.out.println("****************************************************");
+        System.out.println("*                     PRATICA 2                    *");
+        System.out.println("****************************************************");
+        System.out.println();
+
+        int a = 5;
+        int seed = 1;
+        int b = 9;
+        Pratica1 p = new Pratica1(a, seed, b);
+        p.generaInsiemeInteri();
+
+        a = 13;
+        seed = 3;
+        p = new Pratica1(a, seed, b);
+        p.generaInsiemeInteri();
+
+        a = 21;
+        seed = 5;
+        p = new Pratica1(a, seed, b);
+        p.generaInsiemeInteri();
+
+        a = 29;
+        seed = 7;
+        p = new Pratica1(a, seed, b);
+        p.generaInsiemeInteri();
 
     }
 

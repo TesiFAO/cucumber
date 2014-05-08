@@ -32,6 +32,32 @@ public class Pratica1 {
             count++;
         if (a2.equals(l1))
             count++;
+        String sa1 = "Corollario A.1 = [";
+        String sa2 = "Corollario A.2 = [";
+        String sl1 = "Sequenza = [";
+        for (int i = 0 ; i < 50 ; i++) {
+            sa1 += a1.get(i);
+            sa2 += a2.get(i);
+            sl1 += l1.get(i);
+            if (i < l1.size() - 1) {
+                sa1 += ", ";
+                sa2 += ", ";
+                sl1 += ", ";
+            }
+        }
+        sa1 += " ...]";
+        sa2 += " ...]";
+        sl1 += " ...]";
+        System.out.println("a: " + this.getA());
+        System.out.println("seed: " + this.getSeed());
+        System.out.println("b: " + this.getB());
+        System.out.println();
+        System.out.println(sa1 + "\n");
+        System.out.println(sa2 + "\n");
+        System.out.println(sl1 + "\n");
+        System.out.println("La sequenza generata e' identica a quella prevista dal Corollario A.1? " + a1.equals(l1));
+        System.out.println("La sequenza generata e' identica a quella prevista dal Corollario A.2? " + a2.equals(l1));
+        System.out.println();
         return count;
     }
 
