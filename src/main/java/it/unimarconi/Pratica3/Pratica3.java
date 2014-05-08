@@ -2,6 +2,7 @@ package it.unimarconi.Pratica3;
 
 import it.unimarconi.utils.Utils;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class Pratica3 {
@@ -21,6 +22,8 @@ public class Pratica3 {
     private int avg;
 
     private double p;
+
+    private DecimalFormat df = new DecimalFormat("#0.0000");
 
     public Pratica3(int a, int seed, int b, int min, int max) {
         this.setA(a);
@@ -67,6 +70,124 @@ public class Pratica3 {
 
     public List<Double> generaIperesponenziale() {
         return Utils.generaIpersponenziale(this.getA(), this.getSeed1(), this.getSeed2(), this.getB(), this.getAvg(), this.getP());
+    }
+
+    public void print() {
+        printRn();
+        printRange();
+        printExp();
+        printHyperExp();
+    }
+
+    public void printRn() {
+        List<Double> l = generaRn();
+        int numeroClassi = 10;
+        System.out.println("*********************************");
+        System.out.println("*          SEQUENZA RN          *");
+        System.out.println("*********************************");
+        System.out.println();
+        System.out.println("a: " + this.getA());
+        System.out.println("seed: " + this.getSeed1());
+        System.out.println("b: " + this.getB());
+        System.out.println();
+        printOut(l);
+    }
+
+    public void printRange() {
+        List<Double> l = generaIntervallo();
+        int numeroClassi = 10;
+        System.out.println("********************************************************************");
+        System.out.println("*          SEQUENZA UNIFORMEMENTE DISTRIBUITA IN (30, 50)          *");
+        System.out.println("********************************************************************");
+        System.out.println();
+        System.out.println("a: " + this.getA());
+        System.out.println("seed: " + this.getSeed1());
+        System.out.println("b: " + this.getB());
+        System.out.println("min: " + this.getMin());
+        System.out.println("max: " + this.getMax());
+        System.out.println();
+        printOut(l);
+    }
+
+    public void printExp() {
+        List<Double> l = generaEsponenziale();
+        int numeroClassi = 10;
+        System.out.println("*******************************************************");
+        System.out.println("*          SEQUENZA ESPONENZIALE DI MEDIA 20          *");
+        System.out.println("*******************************************************");
+        System.out.println();
+        System.out.println("a: " + this.getA());
+        System.out.println("seed: " + this.getSeed1());
+        System.out.println("b: " + this.getB());
+        System.out.println("avg: " + this.getAvg());
+        System.out.println();
+        printOut(l);
+    }
+
+    public void printHyperExp() {
+        List<Double> l = generaIperesponenziale();
+        int numeroClassi = 10;
+        System.out.println("*******************************************************************************");
+        System.out.println("*          SEQUENZA IPERESPONENZIALE DI MEDIA 20 E PARAMETRO p = 0.38         *");
+        System.out.println("*******************************************************************************");
+        System.out.println();
+        System.out.println("a: " + this.getA());
+        System.out.println("seed 1: " + this.getSeed1());
+        System.out.println("seed 2: " + this.getSeed2());
+        System.out.println("avg: " + this.getAvg());
+        System.out.println("p: " + this.getP());
+        System.out.println();
+        printOut(l);
+    }
+
+    public void printOut(List<Double> l) {
+        int numeroClassi = 10;
+        List<Double> soglie = Utils.generaSoglie(l, numeroClassi);
+        List<Integer> classi = Utils.generaClassi(l, numeroClassi);
+        List<Double> freqRelative = Utils.calcolaFrequenzeRelative(classi, l.size());
+        List<Double> densita = Utils.calcolaDensita(l, freqRelative);
+        List<Double> cumulata = Utils.calcolaCumulata(freqRelative, classi);
+        String seq = "Sequenza:\ndata: [";
+        String occorrenze = "Occorrenze:\ndata: [";
+        String f = "Frequenze Relative:\ndata: [";
+        String d = "Densita:\ndata: [";
+        String c = "Cumulata:\ndata: [";
+        String cat = "categories: [";
+        for (int z = 0 ; z < soglie.size() - 1; z++) {
+            cat += "'" + soglie.get(z) + " to " + soglie.get(1 + z) + "'";
+            if (z < soglie.size() - 1)
+                cat += ", ";
+        }
+        cat += soglie.get(soglie.size() - 1) + " to " + Utils.max(l);
+        for (int i = 0 ; i < freqRelative.size() ; i++) {
+            seq += l.get(i);
+            f += df.format(freqRelative.get(i));
+            d += df.format(densita.get(i));
+            c += df.format(cumulata.get(i));
+            occorrenze += classi.get(i);
+            if (i < freqRelative.size() - 1) {
+                f += ", ";
+                d += ", ";
+                c += ", ";
+                seq += ", ";
+                occorrenze += ", ";
+            }
+        }
+        f += "]";
+        d += "]";
+        c += "]";
+        seq += "]";
+        cat += "]";
+        occorrenze += "]";
+        System.out.println(seq + "\n");
+        System.out.println(cat + "\n");
+        System.out.println(occorrenze + "\n");
+        System.out.println(f + "\n");
+        System.out.println(d + "\n");
+        System.out.println(c + "\n");
+        System.out.println("Media: " + Utils.calcolaMedia(l));
+        System.out.println("Varianza: " + Utils.calcolaVarianza(l));
+        System.out.println();
     }
 
     public double getP() {

@@ -150,7 +150,7 @@ public class Utils {
         }
         for (Double d : l1)
             l2.add(d / m);
-        System.out.println(l2.size() + " rns");
+//        System.out.println(l2.size() + " rns");
         return l2;
     }
 
@@ -167,7 +167,6 @@ public class Utils {
         List<Double> rns = generaRn(a, seed, b);
         for(Double rn : rns)
             l.add(-avg * Math.log(rn));
-        System.out.println(l.size() + " exp");
         return l;
     }
 
@@ -192,8 +191,9 @@ public class Utils {
         return s / l.size();
     }
 
-    public static double calcolaVarianza(List<Double> l, double media) {
+    public static double calcolaVarianza(List<Double> l) {
         double s = 0.0;
+        double media = calcolaMedia(l);
         for (Double d : l)
             s += Math.pow((d - media), 2);
         return s / l.size();

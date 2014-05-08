@@ -29,5 +29,5 @@ Feature: Costruire in C++ o Java un generatore che produca sequenze <Rn>
     Then there should be an hyperexponential sequence of average <avg> and p = <p>
 
   Examples:
-    | a | seedA | seedB |  b | avg |    p |
-    | 61 |     15 |     1 | 12 |  20 | 0.38 |
+    |  a |  seedA |  seedB |  b | avg |    p |
+    | 61 |      1 |     15 | 12 |  20 | 0.38 |
