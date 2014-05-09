@@ -9,15 +9,19 @@ import java.util.List;
  */
 public class Utils {
 
+    public static double Z00 = -1.282;
+
+    public static double Z01 = -1.282;
+
+    public static double Z10 = -1.282;
+
     public static double Z25 = -0.674;
 
     public static double Z75 = 0.674;
 
-    public static double Z99 = 2.326;
-
-    public static double Z10 = -1.282;
-
     public static double Z90 = 1.282;
+
+    public static double Z99 = 2.326;
 
     public static List<Integer> generaClassi(List<Double> l, int numeroGruppi) {
         double max = max(l);
@@ -248,12 +252,11 @@ public class Utils {
     public static double calcolaV(List<Double> yss, double n, double ps) {
         double v = 0.0;
         double nps = n * ps;
-//        nps = 164;
         for (int i = 0 ; i < yss.size() ; i++) {
 //            System.out.println("categoria " + i + " contiene " + yss.get(i) + " -> " + (Math.pow(yss.get(i) - nps, 2) / nps));
-            v += Math.pow(yss.get(i) - nps, 2) / nps;
+            v += (Math.pow(yss.get(i) - nps, 2) / nps);
         }
-//        System.out.println("nps: " + nps);
+//        System.out.println("n * ps: " + nps);
 //        System.out.println("v: " + v);
 //        System.out.println();
         return v;
@@ -266,14 +269,14 @@ public class Utils {
 //        nps = 164;
         double v1 = 0;
         for (int i = 0 ; i < yss.size() ; i++) {
-            System.out.println("categoria " + i + " contiene " + yss.get(i) + " -> " + (Math.pow(yss.get(i) - nps, 2) / nps));
+//            System.out.println("categoria " + i + " contiene " + yss.get(i) + " -> " + (Math.pow(yss.get(i) - nps, 2) / nps));
             v += Math.pow(yss.get(i) - nps, 2) / nps;
             if  ( yss.get(i) <= 0)
                 v1 += Math.pow(yss.get(i) - nps, 2) / nps;
         }
-        System.out.println("nps: " + nps);
-        System.out.println("v: " + v);
-        System.out.println("v1: " + v1);
+//        System.out.println("nps: " + nps);
+//        System.out.println("v: " + v);
+//        System.out.println("v1: " + v1);
         System.out.println();
         return v;
     }

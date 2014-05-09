@@ -12,3 +12,14 @@ Feature: Costruire in C++ o Java un generatore congruente moltiplicativo che gen
     | 79 |    1 | 19 |  64 |     3 |        2 |
     | 65 |    3 | 19 |  64 |     3 |        2 |
     | 85 |    3 | 19 |  64 |     3 |        2 |
+
+  Scenario Outline: Test Seriale
+    Given "seriale" a = <a>, seed = <seed>, b = <b>, d = <d> e <prove> prove
+    Then il test "seriale" risulta accettabile <successi> volte su <prove>
+
+  Examples:
+    |  a | seed |  b |   d | prove | successi |
+    | 15 |    1 | 19 |  64 |     3 |        0 |
+    | 79 |    1 | 19 |  64 |     3 |        0 |
+    | 65 |    3 | 19 |  64 |     3 |        0 |
+    | 85 |    3 | 19 |  64 |     3 |        0 |

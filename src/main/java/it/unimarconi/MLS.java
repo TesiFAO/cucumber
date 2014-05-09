@@ -3,6 +3,7 @@ package it.unimarconi;
 import it.unimarconi.Pratica3.Pratica3;
 import it.unimarconi.pratica1.Pratica1;
 import it.unimarconi.pratica2.Pratica2;
+import it.unimarconi.pratica4.Pratica4;
 
 public class MLS {
 
@@ -114,6 +115,60 @@ public class MLS {
     }
 
     private static void pratica4() {
+
+        System.out.println("****************************************************");
+        System.out.println("*                     PRATICA 4                    *");
+        System.out.println("****************************************************");
+        System.out.println();
+
+        Pratica4 p4;
+        int a = 15;
+        int seed = 1;
+        int b = 19;
+        int d = 64;
+        int prove = 3;
+        p4 = new Pratica4(a, seed, b, d, prove);
+        p4.uniformita();
+
+        a = 79;
+        seed = 1;
+        p4 = new Pratica4(a, seed, b, d, prove);
+        p4.uniformita();
+
+        a = 65;
+        seed = 3;
+        p4 = new Pratica4(a, seed, b, d, prove);
+        p4.uniformita();
+
+        a = 85;
+        seed = 3;
+        p4 = new Pratica4(a, seed, b, d, prove);
+        p4.uniformita();
+
+        System.out.println();
+
+        a = 15;
+        seed = 1;
+        b = 19;
+        d = 64;
+        prove = 3;
+        p4 = new Pratica4(a, seed, b, d, prove);
+        p4.seriale();
+
+        a = 79;
+        seed = 1;
+        p4 = new Pratica4(a, seed, b, d, prove);
+        p4.seriale();
+
+        a = 65;
+        seed = 3;
+        p4 = new Pratica4(a, seed, b, d, prove);
+        p4.seriale();
+
+        a = 85;
+        seed = 3;
+        p4 = new Pratica4(a, seed, b, d, prove);
+        p4.seriale();
 
     }
 

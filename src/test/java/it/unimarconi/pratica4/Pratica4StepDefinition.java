@@ -29,4 +29,19 @@ public class Pratica4StepDefinition {
         assertTrue(count >= successi);
     }
 
+    @Given("^\"([^\"]*)\" a = (\\d+), seed = (\\d+), b = (\\d+), d = (\\d+) e (\\d+) prove$")
+    public void a_seed_b_d_e_prove(String seriale, int a, int seed, int b, int d, int prove) {
+        p4 = new Pratica4(a, seed, b, d, prove);
+    }
+
+    @Then("^il test \"([^\"]*)\" risulta accettabile (\\d+) volte su (\\d+)$")
+    public void il_test_risulta_accettabile_volte_su(String seriale, int successi, int prove) {
+        boolean[] out = p4.seriale();
+        int count = 0;
+        for (int i = 0 ; i < out.length ; i++)
+            if (out[i])
+                count++;
+        assertTrue(successi == count);
+    }
+
 }
